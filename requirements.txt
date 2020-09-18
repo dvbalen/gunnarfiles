@@ -1,0 +1,4 @@
+faker
+datasette
+csvs-to-sqlite
+datasette-vega
