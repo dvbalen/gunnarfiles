@@ -49,7 +49,7 @@ $ make ROWS=4000
 
 **ROWS** Number of rows to be created in the demo data (defaults to 2108 rows)
 **CSVFILES** List of CSV files to bundle into the dataset (defaults to all in the directory)
-**DBFILES**  Name of the database combining csv files to be served (defaults to bundle.db)
+**DBFILES**  Name of the database combining csv files to be served (defaults to databundle.db)
 **LOGFILE**  Name of the datasette log file (defaults to DBFILES with a .log extension)
 **PORT**     Number of the port the datasette will be available on (defaults to 8001)
 **PYENVD**   Name of the python virtual environment (defaults to .env)
