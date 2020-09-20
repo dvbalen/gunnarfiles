@@ -32,6 +32,13 @@ $ make
 This will install a python environment will all needed libraries. Create a synthetic CSV file which
 will be turned into a datasette, served locally and open a browser to the datasette.
 
+## Stopping
+
+To stop serving the data run
+```
+$ make stop
+```
+
 ### Bring your owns CSVs
 
 If you drop a csv into the directory and type `make` the csv's those will be bundled and served 
