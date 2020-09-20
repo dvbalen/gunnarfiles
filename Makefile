@@ -15,6 +15,7 @@ all: serve
 serve: $(DBFILES) $(PYENVD)
 	$(PYENVD)/bin/datasette $(DBFILES) >  $(LOGFILE) 2>&1 &
 	sleep 2
+	head -4 $(LOGFILE)
 	open "http://localhost:$(PORT)"
 
 $(DBFILES):  $(CSVFILES)
