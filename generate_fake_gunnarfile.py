@@ -9,13 +9,13 @@ import sys
 
 def header_v1():
     return(
-    'First Name',
-    'Last Name', 
-    'Work Office Location',
-    'Remote Location',
-    'Work Office Phone',
-    'Work Mobile Phone',
-    'Personal Mobile Phone'
+    'first_name',
+    'last_name', 
+    'work_office_location',
+    'remote_location',
+    'work_office_phone',
+    'work_mobile_phone',
+    'personal_mobile_phone'
     )
 
 def make_row_v1(fake):
