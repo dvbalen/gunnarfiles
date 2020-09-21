@@ -22,6 +22,9 @@ $ make --version
 GNU Make 3.81
 ```
 
+Make sure GLIB 2.x libraries and headers are available (for regex_replace). On
+Mac with homebrew you can run `brew install glib`
+
 Clone the gunnarfiles repo
 ```
 $ git clone https://github.com/dvbalen/gunnarfiles.git
@@ -59,11 +62,10 @@ For example to create a datasette with 4000 rows of demo data use the following 
 $ make ROWS=4000
 ```
 
-**ROWS** Number of rows to be created in the demo data (defaults to 2108 rows)
-**CSVFILES** List of CSV files to bundle into the dataset (defaults to all in the directory)
-**DBFILES**  Name of the database combining csv files to be served (defaults to databundle.db)
-**LOGFILE**  Name of the datasette log file (defaults to DBFILES with a .log extension)
-**PORT**     Number of the port the datasette will be available on (defaults to 8001)
-**PYENVD**   Name of the python virtual environment (defaults to .env)
-**PYTHON3**  Path to the python to use to install and run datasette and
-dependencies (defaults to python3)
+- **ROWS** Number of rows to be created in the demo data (defaults to 2108 rows)
+- **CSVFILES** List of CSV files to bundle into the dataset (defaults to all in the directory)
+- **DBFILES**  Name of the database combining csv files to be served (defaults to databundle.db)
+- **LOGFILE**  Name of the datasette log file (defaults to DBFILES with a .log extension)
+- **PORT**     Number of the port the datasette will be available on (defaults to 8001)
+- **PYENVD**   Name of the python virtual environment (defaults to .env)
+- **PYTHON3**  Path to the python to use to install and run datasette and dependencies (defaults to python3)
