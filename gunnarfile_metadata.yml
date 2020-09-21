@@ -1,0 +1,60 @@
+---
+title: Welcome to the test environment
+databases:
+    databundle:
+        description_html: |-
+            <p>The gunnar table contains synthetic data
+            generated via generate_fake_gunnarfile.py
+            using
+            <a href="https://faker.readthedocs.io/en/latest/index.html">
+            the faker library</a></p>
+        queries:
+            phone_templates:
+                sql: |-
+                    select
+                        regex_replace('[0-9]', work_office_phone, 'n') ph_templ,
+                        count(*) total
+                    from
+                        gunnarfile
+                    group by
+                        ph_templ
+                    order by
+                        total desc
+                title: Show the ways phone numbers where entered into a column
+            phone_lengths:
+                sql: |-
+                   select
+                       work_office_phone,
+                       normalized_ph,
+                       length(normalized_ph) norm_ph_len
+                   from
+                       (
+                           select
+                           work_office_phone,
+                           regex_replace(
+                               '[^0-9x]',
+                               work_office_phone,
+                               '') normalized_ph
+                           from
+                           gunnarfile
+                       )
+                   where
+                       norm_ph_len != CAST( :expected_phone_length AS INTEGER)
+                   order by
+                       norm_ph_len desc
+                title: Check non standard phone lengts
+                description_html: |-
+                    <ul><li>First we create a table with a
+                    <i>normalized</i> phone number (remove all
+                    non-number characters). <li>We ask the user for the
+                    phone length they expect. <li>Then we query the new
+                    table and show all phone numbers who's
+                    normalized length is not the expected.<ul>
+        tables:
+            gunnarfile:
+                description_html: |-
+                    <p>Synthetic data generated via generate_fake_gunnarfile.py
+                    using
+                    <a href="https://faker.readthedocs.io/en/latest/index.html">
+                    the faker library</a></p>
+                licence: "None"
