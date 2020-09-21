@@ -1,6 +1,7 @@
 #  DB and CSV files
 *.csv
 *.db
+sqlite-regex-replace-ext-master/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

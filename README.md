@@ -4,13 +4,18 @@ Experiment with datasette as a sql learning tool
 Sets up a [Datasette](https://docs.datasette.io) bundling csv files into a sql DB 
 and publishing on an interactive website with an API.
 
+It will also install the [regex_replace sqlite extension](https://github.com/gwenn/sqlite-regex-replace-ext) for more complex text munging.
+
+
 ## Install
 
-Make sure python is installed
+Make sure python is installed and it's sqlite3 library supports loading sqlite extensions
 ```
 $ python -V
 Python 3.8.2
 ```
+**MacOS Warning** the native sqlite3 on Macs has extensions disabled by default. To get around this limitation you can install Homebrew python or compile/pyenv install while explicitly enabling sqlite extensions. You can then rum `make` with the `PYTHON3` variable set to the python that supports extensions.
+
 Make sure GNU make is installed
 ```
 $ make --version
@@ -60,3 +65,5 @@ $ make ROWS=4000
 **LOGFILE**  Name of the datasette log file (defaults to DBFILES with a .log extension)
 **PORT**     Number of the port the datasette will be available on (defaults to 8001)
 **PYENVD**   Name of the python virtual environment (defaults to .env)
+**PYTHON3**  Path to the python to use to install and run datasette and
+dependencies (defaults to python3)
