@@ -9,7 +9,7 @@ LOGFILE = $(patsubst %.db, %.log, $(DBFILES) )
 PORT=8001
 PYENVD=.env
 ifneq ($(findstring gunnarfile.csv,$(CSVFILES)),)
-	DATASETTEOPTS= #-o foo
+	DATASETTEOPTS=--metadata gunnarfile_metadata.yml
 else
 	DATASETTEOPTS=
 endif
