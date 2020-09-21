@@ -6,6 +6,11 @@ DBFILES = databundle.db
 LOGFILE = $(patsubst %.db, %.log, $(DBFILES) )
 PORT=8001
 PYENVD=.env
+ifneq ($(findstring gunnarfile.csv,$(CSVFILES)),)
+	DATASETTEOPTS= #-o foo
+else
+	DATASETTEOPTS=
+endif
 
 
 .PHONY: all
@@ -13,7 +18,7 @@ PYENVD=.env
 all: serve
 
 serve: $(DBFILES) $(PYENVD)
-	$(PYENVD)/bin/datasette $(DBFILES) >  $(LOGFILE) 2>&1 &
+	$(PYENVD)/bin/datasette $(DATASETTEOPTS) $(DBFILES) >  $(LOGFILE) 2>&1 &
 	sleep 2
 	head -4 $(LOGFILE)
 	open "http://localhost:$(PORT)"
